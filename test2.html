@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gay test-2</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+            margin: 0;
+            overflow: hidden; /* Prevents scrolling when the button moves */
+        }
+
+        .container {
+            text-align: center;
+            margin-top: -100px;
+        }
+
+        .button {
+            padding: 10px 20px;
+            margin: 20px;
+            font-size: 12px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            background-color: #4CAF50;
+            color: white;
+            text-decoration: none;
+            position: absolute;
+        }
+
+        .back-button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin-top: 20px;
+            font-size: 12px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            background-color: #4c68af;
+            color: white;
+            text-decoration: none;
+            transition: background-color 0.1s ease;
+        }
+
+        .button:hover {
+            background-color: #45a049;
+        }
+
+        #noButton {
+            background-color: #f55c51;
+            cursor: not-allowed;
+        }
+
+        #message {
+            margin-top: 20px;
+            font-size: 24px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h4><a href="index.html" class="back-button">Go Back</a></h4>
+        <br><br>
+        <h1>Are You Gay?</h1>
+        <button class="button" id="yesButton">Yes</button>
+        <button class="button" id="noButton">No</button>
+        <div id="message"></div>
+    </div>
+
+    <script>
+        const noButton = document.getElementById('noButton');
+        const messageDiv = document.getElementById('message');
+
+        noButton.addEventListener('mouseenter', function() {
+            const x = Math.random() * (window.innerWidth - noButton.offsetWidth);
+            const y = Math.random() * (window.innerHeight - noButton.offsetHeight);
+            
+            noButton.style.left = `${x}px`;
+            noButton.style.top = `${y}px`;
+        });
+        yesButton.addEventListener('click', function() {
+            messageDiv.innerText = "Yes,You're Gay"; // Display message on Yes button click
+            yesButton.style.display = 'none'; // Hide the Yes button
+            noButton.style.display = 'none';
+        });
+    </script>
+</body>
+</html>

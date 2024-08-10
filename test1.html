@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gay Test-1</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+            margin: 0;
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        .back-button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin-top: 20px;
+            font-size: 12px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            background-color: #4c68af;
+            color: white;
+            text-decoration: none;
+            transition: background-color 0.1s ease;
+        }
+
+        .buttons {
+            margin-bottom: 40px;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        #output, #timer {
+            font-size: 24px;
+            color: #333;
+            margin-top: 20px;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h4><a href="index.html" class="back-button">Go Back</a></h4>
+        <br><br><br>
+        <div class="buttons">
+            <button onclick="showEnglish()">English</button>
+            or
+            <button onclick="showSpanish()">Spanish</button>
+        </div>
+        <div id="output"></div>
+        <div id="timer"></div>
+    </div>
+
+    <script>
+        let timeLeft = 10;
+        let timerInterval;
+
+        function startTimer() {
+            timerInterval = setInterval(function() {
+                if (timeLeft <= 0) {
+                    clearInterval(timerInterval);
+                    
+                    document.getElementById('output').innerText = "Why are You wasting time!!";
+                } else {
+                    timeLeft--;
+                    let minutes = Math.floor(timeLeft / 60);
+                    let seconds = timeLeft % 60;
+                    document.getElementById('timer').innerText = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+                }
+            }, 1000);
+        }
+
+        function showEnglish() {
+            document.getElementById('output').innerText = "If You move you are Gay";
+            startTimer();
+            setTimeout(function() {
+                document.getElementById('timer').innerText = "You are still Gay!";
+            }, 11000); 
+        }
+
+        function showSpanish() {
+            document.getElementById('output').innerText = "You are Gay";
+            document.getElementById('timer').innerText = "";
+        }
+    </script>
+</body>
+</html>
